@@ -6,7 +6,7 @@ pipeline {
             name: 'ENVIRONMENT',
             choices: ['dev', 'stg', 'prod'],
             description: 'Select the environment'
-        )
+        
     }
 
     stages {
