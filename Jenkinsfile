@@ -12,22 +12,19 @@ pipeline {
     stages {
         stage('Hello World') {
             steps {
-                ech "Hello World from trigger ${params.ENVIRONMENT}"
+                echo "Hello World from trigger ${params.ENVIRONMENT}"
             }
         }
 
         stage('Hello Jenkins') {
             steps {
-                ech "Hello Jenkins from ${params.ENVIRONMENT}"
+                echo "Hello Jenkins from ${params.ENVIRONMENT}"
             }
         }
     }
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
-        }
-         failure {
         emailext(
             to: 'nadahamdallah02@gmail.com',
             subject: "Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
