@@ -24,7 +24,11 @@ pipeline {
     }
 
     post {
-        success {
+           success {
+        echo 'Pipeline completed successfully!'
+    }
+
+    failure {
         emailext(
             to: 'nadahamdallah02@gmail.com',
             subject: "Jenkins Build Failed: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
