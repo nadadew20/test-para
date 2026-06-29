@@ -18,7 +18,7 @@ pipeline {
 
         stage('Hello Jenkins') {
             steps {
-                echo "Hello Jenkins from ${params.ENVIRONMENT}"
+                echo "test the webhook from ${params.ENVIRONMENT}"
             }
         }
     }
