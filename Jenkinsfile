@@ -1,11 +1,16 @@
 pipeline {
     agent any
-
+  
+    environment {
+        APP_NAME = 'web-app'
+        REPO_URL ="https://github.com/nadadew20/test-para.git"
+    }
     parameters {
         choice(
             name: 'ENVIRONMENT',
             choices: ['dev', 'stg', 'prod'],
             description: 'Select the environment'
+            
         )
     }
 
@@ -19,6 +24,7 @@ pipeline {
         stage('Hello Jenkins') {
             steps {
                 echo "test the webhook from ${params.ENVIRONMENT} "
+                 git branch: "${GIT_BRANCH}"
             }
         }
     }
